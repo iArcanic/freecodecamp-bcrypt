@@ -9,13 +9,21 @@ const saltRounds = 12;
 const myPlaintextPassword = "sUperpassw0rd!";
 const someOtherPlaintextPassword = "pass123";
 
-//START_ASYNC -do not remove notes, place code between correct pair of notes.
+// START_ASYNC
 
-//END_ASYNC
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+    console.log(hash);
 
-//START_SYNC
+    bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+        console.log(res);
+    })
+});
 
-//END_SYNC
+// END_ASYNC
+
+// START_SYNC
+
+// END_SYNC
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
